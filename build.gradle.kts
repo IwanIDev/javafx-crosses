@@ -4,6 +4,7 @@ plugins {
     id("org.javamodularity.moduleplugin") version "1.8.15"
     id("org.openjfx.javafxplugin") version "0.1.0"
     id("org.beryx.jlink") version "2.25.0"
+    id("eclipse")
 }
 
 group = "dev.iwani"
@@ -43,5 +44,20 @@ jlink {
     options.set(listOf("--strip-debug", "--compress", "2", "--no-header-files", "--no-man-pages"))
     launcher {
         name = "app"
+    }
+}
+
+eclipse {
+    classpath {
+        file {
+            whenMerged {
+                val cp = this as org.gradle.plugins.ide.eclipse.model.Classpath
+                cp.entries.forEach { entry ->
+                    if (entry is org.gradle.plugins.ide.eclipse.model.Library) {
+                        entry.entryAttributes["module"] = "true"
+                    }
+                }
+            }
+        }
     }
 }
