@@ -10,15 +10,16 @@
 <?import javafx.scene.layout.VBox?>
 
 <BorderPane prefHeight="560.0" prefWidth="520.0"
-            xmlns:fx="http://javafx.com/fxml">
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="dev.iwani.crosses.TicTacToeController">
     <top>
         <VBox alignment="CENTER" spacing="8.0">
             <padding>
                 <Insets bottom="20.0" left="20.0" right="20.0" top="24.0"/>
             </padding>
-            <Label text="Tic Tac Toe"
+            <Label text="Noughts and Crosses"
                    style="-fx-font-size: 28px; -fx-font-weight: bold;"/>
-            <Label text="Player X's turn"
+            <Label fx:id="turnLabel" text="Next: X"
                    style="-fx-font-size: 16px;"/>
         </VBox>
     </top>
@@ -26,23 +27,23 @@
     <center>
         <GridPane alignment="CENTER" hgap="8.0" vgap="8.0">
             <Button fx:id="cell00" prefHeight="120.0" prefWidth="120.0"
-                    style="-fx-font-size: 42px;"/>
+                    style="-fx-font-size: 42px;" onAction="#handleCellClick"/>
             <Button fx:id="cell01" prefHeight="120.0" prefWidth="120.0"
-                    style="-fx-font-size: 42px;" GridPane.columnIndex="1"/>
+                    style="-fx-font-size: 42px;" onAction="#handleCellClick" GridPane.columnIndex="1"/>
             <Button fx:id="cell02" prefHeight="120.0" prefWidth="120.0"
-                    style="-fx-font-size: 42px;" GridPane.columnIndex="2"/>
+                    style="-fx-font-size: 42px;" onAction="#handleCellClick" GridPane.columnIndex="2"/>
             <Button fx:id="cell10" prefHeight="120.0" prefWidth="120.0"
-                    style="-fx-font-size: 42px;" GridPane.rowIndex="1"/>
+                    style="-fx-font-size: 42px;" onAction="#handleCellClick" GridPane.rowIndex="1"/>
             <Button fx:id="cell11" prefHeight="120.0" prefWidth="120.0"
-                    style="-fx-font-size: 42px;" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                    style="-fx-font-size: 42px;" onAction="#handleCellClick" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
             <Button fx:id="cell12" prefHeight="120.0" prefWidth="120.0"
-                    style="-fx-font-size: 42px;" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                    style="-fx-font-size: 42px;" onAction="#handleCellClick" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
             <Button fx:id="cell20" prefHeight="120.0" prefWidth="120.0"
-                    style="-fx-font-size: 42px;" GridPane.rowIndex="2"/>
+                    style="-fx-font-size: 42px;" onAction="#handleCellClick" GridPane.rowIndex="2"/>
             <Button fx:id="cell21" prefHeight="120.0" prefWidth="120.0"
-                    style="-fx-font-size: 42px;" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                    style="-fx-font-size: 42px;" onAction="#handleCellClick" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
             <Button fx:id="cell22" prefHeight="120.0" prefWidth="120.0"
-                    style="-fx-font-size: 42px;" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+                    style="-fx-font-size: 42px;" onAction="#handleCellClick" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
         </GridPane>
     </center>
 
